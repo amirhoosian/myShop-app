@@ -10,10 +10,14 @@ const router = express.Router()
 router.get('/add-product', (req, res) => {
     res.sendFile(path.join(rootDir ,'views', 'add-product.html'))
 })
+
+const product = []
+
 router.post('/add-product', (req, res) => {
-    console.log(req.body)
+    product.push({title: req.body.title})
     res.redirect('/')
 })
 
 
-module.exports = router
+exports.route = router
+exports.product = product
