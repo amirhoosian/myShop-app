@@ -8,7 +8,7 @@ const router = express.Router()
 
 
 router.get('/add-product', (req, res) => {
-    res.render('add-product', {pageTitle: 'Product-management', path: '/admin/add-product'})
+    res.render('add-product', {pageTitle: 'Product-management', path: '/admin/add-product', activeAddProduct: true, productCss: true, formCss: true})
 })
 
 const product = []
