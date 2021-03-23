@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const expHbs = require('express-handlebars')
 const path = require('path')
-
 
 const adminData = require('./route/admin')
 const shopRoute = require('./route/shop')
@@ -10,7 +10,8 @@ const shopRoute = require('./route/shop')
 
 const app = express()
 
-app.set('view engine', 'pug')
+app.engine('handlebars', expHbs())
+app.set('view engine', 'handlebars')
 app.set('views', 'views')
 
 
