@@ -10,8 +10,8 @@ const shopRoute = require('./route/shop')
 
 const app = express()
 
-app.engine('handlebars', expHbs())
-app.set('view engine', 'handlebars')
+app.engine('hbs', expHbs())
+app.set('view engine', 'hbs')
 app.set('views', 'views')
 
 
