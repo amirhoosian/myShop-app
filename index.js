@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 // const expHbs = require('express-handlebars')
 const path = require('path')
 
-const adminData = require('./route/admin')
+const adminRoutes = require('./route/admin')
 const shopRoute = require('./route/shop')
 
 
@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 
 
-app.use('/admin', adminData.route)
+app.use('/admin', adminRoutes)
 app.use(shopRoute)
 
 
