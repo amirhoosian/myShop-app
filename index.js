@@ -5,7 +5,7 @@ const path = require('path')
 
 const adminRoutes = require('./route/admin')
 const shopRoute = require('./route/shop')
-
+const errorControllers = require('./controllers/error')
 
 
 const app = express()
@@ -29,9 +29,7 @@ app.use(shopRoute)
 
 
 
-app.use((req, res) => {
-    res.status(404).render('404', {pageTitle: 'page not found'})
-})
+app.use(errorControllers.geterror404)
 
 
 app.listen(3000, console.log('server running'))
