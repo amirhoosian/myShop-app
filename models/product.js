@@ -27,19 +27,10 @@ class product{
 
     static fetchAll(cb){
         const p = path.join(rootDir, 'Data', 'products.json')
-        fs.readFile(p, (err, data) => {
-            if(err){
-                cb([])
-            }else{
-                let jsonData = []
-                try {
-                    jsonData = JSON.parse(data)
-                }catch(e){
-                    jsonData = []
-
-                }
-                cb(JSON.parse(data))
-            }
+        fs.readFile(p, 'utf-8', (err, data) => {
+           let myData = data === '' ? [] : JSON.parse(data)
+           cb(myData)
+            
         })
     }
 }
