@@ -13,7 +13,12 @@ class product{
         fs.readFile(p, (err, data) => {
             let product = []
             if(!err){
-                product = JSON.parse(data)
+                try {
+                    product = JSON.parse(data)
+                } catch (error) {
+                    product = []
+                }
+              
             }
             product.push(this)
             fs.writeFile(p, JSON.stringify(product), (err) => {console.log(err)})
@@ -25,8 +30,16 @@ class product{
         fs.readFile(p, (err, data) => {
             if(err){
                 cb([])
+            }else{
+                let jsonData = []
+                try {
+                    jsonData = JSON.parse(data)
+                }catch(e){
+                    jsonData = []
+
+                }
+                cb(JSON.parse(data))
             }
-            cb(JSON.parse(data))
         })
     }
 }
